@@ -30,28 +30,24 @@
       <div class="right-image">
         <img src="./images/income_tax.jpg" alt="income tax" />
       </div>
-      <div class="page-content-php">Please enter your employment information.</div>
-      <form action="answer.php" method="GET">
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="hours-worked">
-          <label class="mdl-textfield__label" for="hours-worked">Hours worked (hours)</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
+      <div class="page-content-php">
+        <div id="user-info">
+          <?php
+          $hoursWorked = $_GET["hours-worked"];
+          $hourlyWage = $_GET["hourly-wage"];
+          $INCOME_TAX = 0.18;
+          // process
+          $taxedSalary = ($hoursWorked * $hourlyWage) * (1.00 - $INCOME_TAX);
+          $taxDeduction = ($hoursWorked * $hourlyWage) * $INCOME_TAX;
+          // output
+          echo "If you wokred for = " . $hoursworked . " and got pain = " . $hourlywage . " an hour" . "then the government took" . $INCOME_TAX . "%";
+          echo "<br />";
+          echo "Your pay will be:" . " $ " . $taxedSalary . "."(round(4.96754, 2));
+          echo "The government will take:" . " $ " . $taxDeduction . "."(round(4.96754, 2));
+          ?>
         </div>
-        <br />
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type=" text" pattern="-?[0-9]*(\.[0-9]+)?" name="hourly-wage">
-          <label class="mdl-textfield__label" for="hourly-wage">hourly wage ($)</label>
-          <span class="mdl-textfield__error">Input is not a number!</span>
-        </div>
-        <br />
-        <!-- Accent-colored raised button with ripple -->
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-          type="submit">
-          Calculate
-        </button>
-      </form>
-  </div>
-  </main>
+      </div>
+    </main>
   </div>
 </body>
 
