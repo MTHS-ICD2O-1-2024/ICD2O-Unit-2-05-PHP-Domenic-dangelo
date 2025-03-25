@@ -40,12 +40,9 @@
           $taxedSalary = ($hoursWorked * $hourlyWage) * (1.00 - $INCOME_TAX);
           $taxDeduction = ($hoursWorked * $hourlyWage) * $INCOME_TAX;
           // output
-          echo "Your pay will be:" . " $ " . $taxedSalary . "."(round(4.96754, 2));
+          echo "Your pay will be:" . " $ " . $taxedSalary . "."(round($taxedSalary, 2));
           echo "<br />";
-          echo "The government will take:" . " $ " . $taxDeduction . "."(round(4.96754, 2));
-          echo "Your pay will be:" . " $ " . $taxedSalary . ".";
-          echo "<br />";
-          echo "The government will take:" . " $ " . $taxDeduction . ".";
+          echo "The government will take:" . " $ " . $taxDeduction . "."(round($taxDeduction, 2));
           ?>
           <div class="page-content-answer">
             <a href="./index.php">Return</a>
