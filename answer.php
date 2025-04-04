@@ -33,9 +33,10 @@
       <div class="page-content-php">
         <div id="user-info">
           <?php
+          //input
+          $INCOME_TAX = 0.18;
           $hoursWorked = $_GET["hours-worked"];
           $hourlyWage = $_GET["hourly-wage"];
-          $INCOME_TAX = 0.18;
           // process
           $taxedSalary = ($hoursWorked * $hourlyWage) * (1.00 - $INCOME_TAX);
           $taxDeduction = ($hoursWorked * $hourlyWage) * $INCOME_TAX;
